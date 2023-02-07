@@ -1,15 +1,11 @@
-const { OrderService } = require("../service/order-service");
+const { OrderService } = require('../service/order-service');
+
+const orderService = new OrderService();
 
 class OrderController {
-
-  constructor() {
-    this.orderService = new OrderService();
-  }
-
-  async create(request, response) {
-    const data = request.body;
-    const result = this.orderService.save(data);
-    response.json(result);
+  async create (req, res) {
+    const data = await orderService.save(req.body);
+    return res.json(data);
   }
 }
 
