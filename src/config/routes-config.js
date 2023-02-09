@@ -1,11 +1,13 @@
 const express = require("express");
 
-const orderController = require('../controller/order.controller');
-
-const router = express.Router();
+const OrderController = require('../controller/order.controller');
+const ProductController = require('../controller/product.controller');
 
 const routesConfig = () => {
-  router.post('/orders', orderController.create);
+  const router = express.Router();
+  router.post('/orders', OrderController.create);
+  router.get('/products/:code', ProductController.findByCode);
+  router.post('/products/', ProductController.create);
   return router;
 };
 

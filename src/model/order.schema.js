@@ -6,16 +6,23 @@ const OrderSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  name: {
-    type: String,
-    required: true,
+  title: {
+    type: String
   },
   orderNumber: {
     type: Number,
   },
+  orderType: {
+    type: String,
+    enum : ['BUDGET','SALE'],
+    default: 'SALE'
+  },
+  price: {
+    type: Number
+  },
   active: {
     type: Boolean,
-    default: false
+    default: true
   },
 },
 { timestamps: true });

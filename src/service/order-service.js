@@ -1,4 +1,4 @@
-const Order = require('../model/order-schema');
+const Order = require('../model/order.schema');
 const { OrderCreateData } = require('../data/order.data');
 
 class OrderService {
